@@ -1,16 +1,18 @@
 import { useState } from "react";
 import styles from "../styles/OrderDetail.module.css";
 
-const OrderDetail = ({ total, createOrder }) => {
+const OrderDetail = ({ total, createOrder, setCash }) => {
+  console.log(setCash);
   const [customer, setCustomer] = useState("");
   const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
 
   const handleClick = () => {
-    createOrder({ customer, address, total, method: 0 });
+    createOrder({ customer, address, total, phone, method: 0 });
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       <div className={styles.wrapper}>
         <h1 className={styles.title}>You will pay ${total} after delivery.</h1>
         <div className={styles.item}>
@@ -28,6 +30,7 @@ const OrderDetail = ({ total, createOrder }) => {
             type="text"
             placeholder="+1 234 567 89"
             className={styles.input}
+            onChange={(e) => setPhone(e.target.value)}
           />
         </div>
         <div className={styles.item}>
@@ -40,9 +43,14 @@ const OrderDetail = ({ total, createOrder }) => {
             onChange={(e) => setAddress(e.target.value)}
           />
         </div>
-        <button className={styles.button} onClick={handleClick}>
-          Order
-        </button>
+        <div>
+          <button className={styles.button} onClick={handleClick}>
+            Order
+          </button>
+          <button className={styles.button} onClick={() => setCash(false)}>
+            Cancel
+          </button>
+        </div>
       </div>
     </div>
   );

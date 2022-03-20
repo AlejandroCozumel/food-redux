@@ -21,6 +21,7 @@ const Orders = ({order}) => {
               <th>Order ID</th>
               <th>Customer</th>
               <th>Address</th>
+              <th>Phone #</th>
               <th>Total</th>
             </tr>
             <tr className={styles.tr}>
@@ -32,6 +33,9 @@ const Orders = ({order}) => {
             </td>
             <td>
               <span className={styles.address}>{order.address}</span>
+            </td>
+            <td>
+              <span className={styles.phone}>{order.phone}</span>
             </td>
             <td>
               <span className={styles.total}>${order.total}</span>

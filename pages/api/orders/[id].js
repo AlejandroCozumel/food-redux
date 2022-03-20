@@ -22,9 +22,9 @@ const handler = async (req, res) => {
       const order = await Order.findByIdAndUpdate(id, req.body, {
         new: true,
       });
-      res.status(200).json(order);
-    } catch (err) {
-      res.status(500).json(err);
+      res.status(201).json(order);
+    } catch (error) {
+      res.status(500).json(error);
     }
   }
   if (method === "DELETE") {

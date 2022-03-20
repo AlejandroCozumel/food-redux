@@ -16,6 +16,10 @@ const OrderSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    phone: {
+      type: Number,
+      default: 0,
+    },
     status: {
       type: Number,
       default: 0,

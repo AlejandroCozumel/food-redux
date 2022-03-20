@@ -4,8 +4,10 @@ import Image from "next/image";
 import styles from "../../styles/Product.module.css";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartSlice";
+import { GiFullPizza } from "react-icons/gi";
 
 const Product = ({ pizza }) => {
+  const [buttonColor, setButtonColor] = useState("black");
   const [price, setPrice] = useState(pizza.prices[0]);
   const [size, setSize] = useState(0);
   const [quantity, setQuantity] = useState(1);
@@ -36,7 +38,7 @@ const Product = ({ pizza }) => {
   const extraLength = extras.length;
 
   const handleClick = () => {
-    dispatch(addProduct({...pizza, extras, price, quantity}));
+    dispatch(addProduct({ ...pizza, extras, price, quantity }));
   };
 
   return (
@@ -58,15 +60,15 @@ const Product = ({ pizza }) => {
         <h3 className={styles.choose}>Choose the size</h3>
         <div className={styles.sizes}>
           <div className={styles.size} onClick={() => handleSize(0)}>
-            <Image src="/img/size.png" layout="fill" alt="choose size" />
+            <GiFullPizza />
             <span className={styles.number}>Small</span>
           </div>
           <div className={styles.size} onClick={() => handleSize(1)}>
-            <Image src="/img/size.png" layout="fill" alt="choose size" />
+            <GiFullPizza onClick={()=> setButtonColor("red")} style={{color: `${buttonColor}`}} />
             <span className={styles.number}>Medium</span>
           </div>
           <div className={styles.size} onClick={() => handleSize(2)}>
-            <Image src="/img/size.png" layout="fill" alt="choose size" />
+            <GiFullPizza/>
             <span className={styles.number}>Large</span>
           </div>
         </div>

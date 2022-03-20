@@ -94,7 +94,7 @@ const Cart = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       <div className={styles.left}>
         <table className={styles.table}>
           <tbody>
@@ -168,8 +168,7 @@ const Cart = () => {
               </button>
               <PayPalScriptProvider
                 options={{
-                  "client-id":
-                  PAYPAL_URL,
+                  "client-id": "AQzuY26G-3QDy5GsI-qaTYVd_VTa0xnR1Pr8RvCUxt8rWm1Fmhj-4eby5hKWPZRUUZfIjIt_fRuP0Vg4",
                   components: "buttons",
                   currency: "USD",
                   "disable-funding": "credit,card,p24",
@@ -185,7 +184,7 @@ const Cart = () => {
           )}
         </div>
       </div>
-      {cash && <OrderDetail total={cart.total} createOrder={createOrder} />}
+      {cash && <OrderDetail setCash={setCash} total={cart.total} createOrder={createOrder} />}
     </div>
   );
 };
