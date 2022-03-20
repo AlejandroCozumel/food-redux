@@ -12,6 +12,8 @@ import { useRouter } from "next/router";
 import { reset } from "../redux/cartSlice";
 import OrderDetail from "../components/OrderDetail";
 
+const PAYPAL_URL = process.env.PAYPAL_URL;
+
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [open, setOpen] = useState(false);
@@ -167,7 +169,7 @@ const Cart = () => {
               <PayPalScriptProvider
                 options={{
                   "client-id":
-                    "AQzuY26G-3QDy5GsI-qaTYVd_VTa0xnR1Pr8RvCUxt8rWm1Fmhj-4eby5hKWPZRUUZfIjIt_fRuP0Vg4",
+                  PAYPAL_URL,
                   components: "buttons",
                   currency: "USD",
                   "disable-funding": "credit,card,p24",
